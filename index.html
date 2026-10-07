@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FreshSip — Nước ngon mỗi ngày</title>
+  <style>
+    :root {
+      --green: #176b45;
+      --lime: #d9f36a;
+      --cream: #fffdf5;
+      --ink: #20352a;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--cream);
+      font-family: Arial, sans-serif;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 7%;
+      background: var(--cream);
+    }
+
+    .logo {
+      color: var(--green);
+      font-size: 25px;
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    nav { display: flex; gap: 26px; }
+    nav a { color: var(--ink); text-decoration: none; }
+    nav a:hover { color: var(--green); }
+
+    .cart {
+      border: 0;
+      border-radius: 999px;
+      padding: 11px 17px;
+      background: var(--lime);
+      color: var(--ink);
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      align-items: center;
+      gap: 35px;
+      padding: 55px 9% 70px;
+      background: #eff6d9;
+    }
+
+    .eyebrow {
+      color: var(--green);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      max-width: 600px;
+      margin: 14px 0;
+      font-size: clamp(42px, 6vw, 72px);
+      line-height: 1.02;
+    }
+
+    .hero p {
+      max-width: 480px;
+      color: #5a6a60;
+      font-size: 17px;
+      line-height: 1.7;
+    }
+
+    .primary {
+      display: inline-block;
+      margin-top: 14px;
+      padding: 14px 22px;
+      border-radius: 999px;
+      background: var(--green);
+      color: white;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .hero-art {
+      display: grid;
+      min-height: 330px;
+      place-items: center;
+      border-radius: 45% 55% 50% 50%;
+      background: var(--lime);
+      font-size: 150px;
+    }
+
+    section.products {
+      padding: 65px 8%;
+    }
+
+    .section-heading {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 20px;
+      margin-bottom: 28px;
+    }
+
+    h2 { margin: 0; font-size: 34px; }
+    .section-heading p { margin: 8px 0 0; color: #718076; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .card {
+      overflow: hidden;
+      border: 1px solid #edf0e7;
+      border-radius: 20px;
+      background: white;
+    }
+
+    .drink-art {
+      display: grid;
+      height: 190px;
+      place-items: center;
+      background: #f4f7eb;
+      font-size: 82px;
+    }
+
+    .card-content { padding: 17px; }
+    .card h3 { margin: 0 0 8px; }
+    .card p { margin: 0 0 14px; color: #78837b; font-size: 14px; }
+
+    .card-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .price { color: var(--green); font-weight: 800; }
+
+    .add {
+      width: 36px;
+      height: 36px;
+      border: 0;
+      border-radius: 50%;
+      background: var(--green);
+      color: white;
+      font-size: 21px;
+      cursor: pointer;
+    }
+
+    .banner {
+      margin: 0 8% 65px;
+      padding: 32px;
+      border-radius: 22px;
+      background: var(--green);
+      color: white;
+      text-align: center;
+    }
+
+    .banner p { margin-bottom: 0; color: #e1f0e4; }
+
+    footer {
+      padding: 24px 8%;
+      background: #f0f2e9;
+      color: #68756b;
+      text-align: center;
+    }
+
+    @media (max-width: 800px) {
+      .hero { grid-template-columns: 1fr; }
+      .hero-art { min-height: 240px; font-size: 110px; }
+      .grid { grid-template-columns: repeat(2, 1fr); }
+      nav { gap: 12px; }
+    }
+
+    @media (max-width: 520px) {
+      header { padding: 16px 5%; }
+      nav { display: none; }
+      .hero { padding: 42px 7%; }
+      section.products { padding: 45px 6%; }
+      .grid { grid-template-columns: 1fr; }
+      .section-heading { align-items: start; flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a class="logo" href="#">FreshSip 🍃</a>
+    <nav aria-label="Điều hướng chính">
+      <a href="#">Trang chủ</a>
+      <a href="#san-pham">Sản phẩm</a>
+      <a href="#lien-he">Liên hệ</a>
+    </nav>
+    <button class="cart" type="button">🛒 Giỏ hàng (<span id="cart-count">0</span>)</button>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div>
+        <div class="eyebrow">Tươi ngon · Mát lành</div>
+        <h1>Nạp năng lượng, tận hưởng ngày vui.</h1>
+        <p>Nước ép trái cây và thức uống thơm ngon được tuyển chọn kỹ lưỡng, giao đến bạn thật nhanh.</p>
+        <a class="primary" href="#san-pham">Khám phá đồ uống</a>
+      </div>
+      <div class="hero-art" aria-label="Ly nước cam">🍹</div>
+    </section>
+
+    <section class="products" id="san-pham">
+      <div class="section-heading">
+        <div>
+          <h2>Được yêu thích</h2>
+          <p>Chọn món bạn thích — chúng tôi chuẩn bị ngay!</p>
+        </div>
+      </div>
+
+      <div class="grid">
+        <article class="card">
+          <div class="drink-art">🍊</div>
+          <div class="card-content">
+            <h3>Nước cam tươi</h3>
+            <p>Cam mọng nước, vị ngọt tự nhiên</p>
+            <div class="card-bottom"><span class="price">35.000đ</span><button class="add" aria-label="Thêm nước cam vào giỏ">+</button></div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="drink-art">🍋</div>
+          <div class="card-content">
+            <h3>Trà chanh mật ong</h3>
+            <p>Thanh mát, thơm dịu, dễ uống</p>
+            <div class="card-bottom"><span class="price">29.000đ</span><button class="add" aria-label="Thêm trà chanh vào giỏ">+</button></div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="drink-art">🥭</div>
+          <div class="card-content">
+            <h3>Sinh tố xoài</h3>
+            <p>Xoài chín thơm, xay mịn béo nhẹ</p>
+            <div class="card-bottom"><span class="price">39.000đ</span><button class="add" aria-label="Thêm sinh tố xoài vào giỏ">+</button></div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="drink-art">🍓</div>
+          <div class="card-content">
+            <h3>Soda dâu</h3>
+            <p>Sủi bọt vui miệng, vị dâu ngọt dịu</p>
+            <div class="card-bottom"><span class="price">32.000đ</span><button class="add" aria-label="Thêm soda dâu vào giỏ">+</button></div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="banner" id="lien-he">
+      <h2>Ưu đãi cho đơn đầu tiên</h2>
+      <p>Giảm 10% khi đặt hàng hôm nay. Gọi chúng tôi: 0900 123 456</p>
+    </section>
+  </main>
+
+  <footer>© 2026 FreshSip · Nước ngon mỗi ngày</footer>
+
+  <script>
+    let cartCount = 0;
+    const counter = document.getElementById("cart-count");
+
+    document.querySelectorAll(".add").forEach((button) => {
+      button.addEventListener("click", () => {
+        cartCount += 1;
+        counter.textContent = cartCount;
+      });
+    });
+  </script>
+</body>
+</html>
